@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="./logo.png">
+    <title>Live News</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <img src="./logo.png" alt="logo.png" class="logo">
+        <a class="navbar-brand" href="#">Top News</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDarkDropdown"
+          aria-controls="navbarNavDarkDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+          <ul class="navbar-nav">
+            <select
+              class="m-3 btn btn-primary"
+              name="countries"
+              id="countryDropdown"
+            >
+              <option value="in">India</option>
+              <option value="us">USA</option>
+              <option value="ae">United Arab Emirates</option>
+              <option value="ar">Argetina</option>
+              <option value="at">Austria</option>
+              <option value="au">Australia</option>
+              <option value="be">Belgium</option>
+              <option value="bg">Bulgaria</option>
+              <option value="br">Brazil</option>
+              <option value="ca">Canada</option>
+              <option value="ch">Switzerland</option>
+              <option value="cn">China</option>
+              <option value="co">Colombia</option>
+              <option value="cu">Cuba</option>
+              <option value="cz">Czech Republic</option>
+              <option value="de">Germany</option>
+              <option value="eg">Egypt</option>
+              <option value="fr">France</option>
+              <option value="gb">United Kingdom</option>
+              <option value="gr">Greece</option>
+              <option value="hk">Hong Kong</option>
+              <option value="hu">Hungary</option>
+              <option value="id">Indonesia</option>
+              <option value="ie">Ireland</option>
+              <option value="il">Israel</option>
+              <option value="it">Italy</option>
+              <option value="jp">Japan</option>
+              <option value="kr">Korea</option>
+              <option value="lt">Lithuania</option>
+              <option value="lv">Latvia</option>
+              <option value="ma">Morocco</option>
+              <option value="mx">Mexico</option>
+              <option value="my">Malaysia</option>
+              <option value="ng">Nigeria</option>
+              <option value="nl">Netherlands</option>
+              <option value="no">Norway</option>
+              <option value="nz">New Zealand</option>
+              <option value="ph">Philippines</option>
+              <option value="pl">Poland</option>
+              <option value="pt">Portugal</option>
+              <option value="ro">Romania</option>
+              <option value="rs">Serbia</option>
+              <option value="ru">Russian Federation</option>
+              <option value="sa">Saudi Arabia</option>
+              <option value="se">Sweden</option>
+              <option value="sg">Singapore</option>
+              <option value="si">Slovenia</option>
+              <option value="sk">Slovakia</option>
+              <option value="th">Thailand</option>
+              <option value="tr">Turkey</option>
+              <option value="tw">Taiwan</option>
+              <option value="ua">Ukraine</option>
+              <option value="ve">Venezuela</option>
+              <option value="za">South Africa</option>
+            </select>
+
+            <select
+              class="m-3 btn btn-primary"
+              name="countries"
+              id="categoryDropdown"
+            >
+              <option value="business">Business</option>
+              <option value="entertainment">Entertainment</option>
+              <option selected value="general">General</option>
+              <option value="health">Health</option>
+              <option value="science">Science</option>
+              <option value="sports">Sports</option>
+              <option value="technology">Technology</option>
+            </select>
+          </ul>
+          <button type="button" class="btn btn-secondary" id="getNews">
+            Get News
+          </button>
+        </div>
+      </div>
+      <form class="d-flex">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search News"
+          aria-label="Search"
+          id="searchNews"
+        />
+        <button
+          class="btn btn-outline-success me-3"
+          id="searchBtn"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </nav>
+    <div class="m-3" id="loading"></div>
+    <div class="allNews m-3 row container-fluid" id="newsList"></div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  --></body>
+  <footer>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center" id="pages"></ul>
+    </nav>
+  </footer>
+  <script src="index.js"></script>
+</html>
